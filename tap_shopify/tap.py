@@ -43,13 +43,13 @@ class Tap_Shopify(Tap):
 
     config_jsonschema = th.PropertiesList(
         th.Property(
-            "access_token",
+            "api_key",
             th.StringType,
             required=True,
             description="The access token to authenticate with the Shopify API",
         ),
         th.Property(
-            "store",
+            "shop",
             th.StringType,
             required=True,
             description=(

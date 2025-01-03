@@ -21,7 +21,7 @@ class tap_shopifyStream(RESTStream):
         """Return the API URL root, configurable via tap settings."""
         url_base = self.config.get(
             "admin_url"
-        ) or "https://{store}.myshopify.com/admin".format(store=self.config["store"])
+        ) or "https://{store}.myshopify.com/admin".format(store=self.config["shop"])
 
         return f"{url_base}/api/{API_VERSION}"
 
@@ -35,7 +35,7 @@ class tap_shopifyStream(RESTStream):
         return tap_shopifyAuthenticator(
             self,
             key="X-Shopify-Access-Token",
-            value=str(self.config["access_token"]),
+            value=str(self.config["api_key"]),
             location="header",
         )
 

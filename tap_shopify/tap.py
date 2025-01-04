@@ -22,7 +22,7 @@ from tap_shopify.streams import (
 )
 
 STREAM_TYPES = [
-    AbandonedCheckouts,
+    # AbandonedCheckouts,
     CollectStream,
     CustomCollections,
     CustomersStream,

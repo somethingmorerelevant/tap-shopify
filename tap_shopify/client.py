@@ -28,18 +28,18 @@ class tap_shopifyStream(RESTStream):
     records_jsonpath = "$[*]"  # Or override `parse_response`.
     next_page_token_jsonpath = "$.next_page"  # Or override `get_next_page_token`.
     last_id = None
-    selected_by_default = False
+    # selected_by_default = False
 
-    @property
-    def metadata(self):
-        """
-        This fixes compatibility with stitch for non-discoverable metadata
-        """
-        self._metadata = super().metadata
-        if self._tap_input_catalog is None:
-            if not self.selected_by_default:
-                self._metadata.root.selected = None
-        return self._metadata
+    # @property
+    # def metadata(self):
+    #     """
+    #     This fixes compatibility with stitch for non-discoverable metadata
+    #     """
+    #     self._metadata = super().metadata
+    #     if self._tap_input_catalog is None:
+    #         if not self.selected_by_default:
+    #             self._metadata.root.selected = None
+    #     return self._metadata
 
     @property
     def authenticator(self):
